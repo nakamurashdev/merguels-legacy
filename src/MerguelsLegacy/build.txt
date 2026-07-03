@@ -1,0 +1,8 @@
+displayName = Merguel's Legacy
+author = Aranhademonocelha
+version = 0.1
+
+includeSource = true
+
+hideCode = false
+hideResources = false

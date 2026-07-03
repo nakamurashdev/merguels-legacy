@@ -1,0 +1,19 @@
+<Project Sdk="Tomat.Terraria.ModLoader.Sdk/2.0.0">
+
+	<Import Project="..\..\build\Mod.Build.targets" />
+
+	<PropertyGroup>
+		<LangVersion>preview</LangVersion>
+		<TargetFramework>net10.0</TargetFramework>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<AssemblyName>MerguelsLegacy</AssemblyName>
+		<RootNamespace>MerguelsLegacy</RootNamespace>
+	</PropertyGroup>
+	
+	<ItemGroup>
+	  <Folder Include="Assets\Textures\Accessories\" />
+	</ItemGroup>
+
+</Project>

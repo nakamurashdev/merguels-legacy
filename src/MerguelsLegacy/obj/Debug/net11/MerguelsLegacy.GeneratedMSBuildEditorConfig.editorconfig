@@ -1,0 +1,9 @@
+is_global = true
+build_property.TmlBuildUseDefaultModImpl = false
+build_property.RootNamespace = MerguelsLegacy
+build_property.ProjectDir = C:\Users\joaov\Documents\Clones\merguels-legacy\src\MerguelsLegacy\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 

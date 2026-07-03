@@ -1,0 +1,114 @@
+Items: {
+	AsphaltPlatformItem: {
+		DisplayName: Asphalt Platform
+		Tooltip: Increases running speed
+	}
+
+	CalciumPotionItem: {
+		DisplayName: Calcium Potion
+		Tooltip:
+			'''
+			'It doesnt taste like milk at all!'
+			Increase defense by 8
+			25% increased movement speed
+			'''
+	}
+
+	MercuryPotionItem: {
+		DisplayName: Mercury Potion
+		Tooltip:
+			'''
+			'Catch me if you can!'
+			25% increased movement speed
+			Provides life regeneration
+			'''
+	}
+
+	RegrowthPotionItem: {
+		DisplayName: Regrowth Potion
+		Tooltip:
+			'''
+			'Warning: May contain Stem Cells'
+			Increase defense by 8
+			Provides life regeneration
+			'''
+	}
+
+	ResurrectionPotionItem: {
+		DisplayName: Resurrection Potion
+		Tooltip: Teleports you back to your latest death point
+	}
+
+	TrinityPotionItem: {
+		DisplayName: Trinity Potion
+		Tooltip:
+			'''
+			'Nobody ever thought of doing this before?'
+			Increase defense by 8
+			25% increased movement speed
+			Provides life regeneration
+			'''
+	}
+
+	UnstableCompassItem: {
+		DisplayName: Unstable Compass
+		Tooltip: There's no North or South on this. It's trash.
+	}
+}
+
+Buffs: {
+	CalciumPotionBuff: {
+		DisplayName: Strong Bones
+		Description: This is barely a scratch
+	}
+
+	MercuryPotionBuff: {
+		DisplayName: Untouchable
+		Description: Tired already? I'm just getting started!
+	}
+
+	RegrowthPotionBuff: {
+		DisplayName: Regrowing
+		Description: Feel free to try again
+	}
+
+	TrinityPotionBuff: {
+		DisplayName: Trinity Force
+		Description: All the strength you need
+	}
+}
+
+Announcements: {
+	OceanTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived, what's this smell?
+	JungleTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived with some tropical goodies.
+	CavernTravellingMerchantAnnouncement.Text: The Travelling Merchant has a bone to pick with Tim.
+	DesertTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived and is thirsty.
+	SnowTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived and he's shivering from the cold.
+	MushroomTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived with a funky vibe.
+	UnderworldTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived and he shouldn't be here.
+	HallowTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived with high spirits!
+	ShimmerTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived and... did he get haircut?
+}
+
+Configs: {
+	ServerSideConfiguration: {
+		DisplayName: Server Settings
+
+		Headers: {
+			Potions: "[i:28] Potion Settings"
+			World: "[i:893] World Settings"
+		}
+
+		EnableSafeQuickBuff: {
+			Label: Enable Safe Quick Buff
+			Tooltip: Enables/disables whether players can use potions from the Safe through the Quick Buff keybind.
+		}
+
+		EnablePreHardmodeStrangePlants: {
+			Label: Enable Pre-Hardmode Strange Plants
+			Tooltip: Enables/disables whether Strange Plants can be found in the world before Hardmode.
+		}
+	}
+
+	ClientSideConfiguration.DisplayName: Client Side Configuration
+}
