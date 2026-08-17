@@ -3,7 +3,8 @@
 public static class BiomeLiquids
 {
     /// <summary>
-    ///     The liquids that represent the <see href="https://terraria.wiki.gg/wiki/Jungle">Jungle</see> biome.
+    ///     The liquids that represent the <see href="https://terraria.wiki.gg/wiki/Jungle">Jungle</see>
+    ///     biome.
     /// </summary>
     public static readonly int[] Jungle =
     [
@@ -11,7 +12,8 @@ public static class BiomeLiquids
     ];
 
     /// <summary>
-    ///     The liquids that represent the <see href="https://terraria.wiki.gg/wiki/Shimmer">Shimmer</see> biome.
+    ///     The liquids that represent the <see href="https://terraria.wiki.gg/wiki/Shimmer">Shimmer</see>
+    ///     biome.
     /// </summary>
     public static readonly int[] Shimmer =
     [

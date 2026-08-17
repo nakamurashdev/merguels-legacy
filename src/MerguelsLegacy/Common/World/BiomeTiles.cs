@@ -3,7 +3,8 @@
 public static class BiomeTiles
 {
     /// <summary>
-    ///     The tile types that represent the <see href="https://terraria.wiki.gg/wiki/Jungle">Jungle</see> biome.
+    ///     The tile types that represent the <see href="https://terraria.wiki.gg/wiki/Jungle">Jungle</see>
+    ///     biome.
     /// </summary>
     public static readonly int[] Jungle =
     [
@@ -16,7 +17,8 @@ public static class BiomeTiles
     ];
 
     /// <summary>
-    ///     The tiles that represent the <see href="https://terraria.wiki.gg/wiki/Desert">Desert</see> biome.
+    ///     The tiles that represent the <see href="https://terraria.wiki.gg/wiki/Desert">Desert</see>
+    ///     biome.
     /// </summary>
     public static readonly int[] Desert =
     [
@@ -28,7 +30,8 @@ public static class BiomeTiles
     ];
 
     /// <summary>
-    ///     The tiles that represent the <see href="https://terraria.wiki.gg/wiki/Snow_biome">Snow</see> biome.
+    ///     The tiles that represent the <see href="https://terraria.wiki.gg/wiki/Snow_biome">Snow</see>
+    ///     biome.
     /// </summary>
     public static readonly int[] Snow =
     [
@@ -37,7 +40,8 @@ public static class BiomeTiles
     ];
 
     /// <summary>
-    ///     The tiles that represent the <see href="https://terraria.wiki.gg/wiki/Glowing_Mushroom">Glowing Mushroom</see> biome.
+    ///     The tiles that represent the
+    ///     <see href="https://terraria.wiki.gg/wiki/Glowing_Mushroom">Glowing Mushroom</see> biome.
     /// </summary>
     public static readonly int[] Mushroom =
     [
@@ -46,7 +50,8 @@ public static class BiomeTiles
     ];
 
     /// <summary>
-    ///     The tiles that represent the <see href="https://terraria.wiki.gg/wiki/The_Hallow">Hallow</see> biome.
+    ///     The tiles that represent the <see href="https://terraria.wiki.gg/wiki/The_Hallow">Hallow</see>
+    ///     biome.
     /// </summary>
     public static readonly int[] Hallow =
     [

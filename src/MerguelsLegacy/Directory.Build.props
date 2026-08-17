@@ -1,0 +1,29 @@
+<Project>
+    
+    <PropertyGroup>
+        <AssemblyName>MerguelsLegacy</AssemblyName>
+        <RootNamespace>MerguelsLegacy</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TmlBuildBootstrapFeatures>tomat.environmentmodlist;tomat.enablemod;lolxd87.splashskip;tomat.assethotreloading;ppeb.netcoredbg</TmlBuildBootstrapFeatures>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PublicizerClearCacheOnClean>true</PublicizerClearCacheOnClean>
+    </PropertyGroup>
+    <ItemGroup>
+        <Publicize Include="FNA; ReLogic; tModLoader" IncludeVirtualMembers="false" IncludeCompilerGeneratedMembers="false"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="System"/>
+        <Using Include="Terraria"/>
+        <Using Include="Terraria.ID"/>
+        <Using Include="Terraria.ModLoader"/>
+        <Using Include="Microsoft.Xna.Framework"/>
+        <Using Include="Microsoft.Xna.Framework.Graphics"/>
+    </ItemGroup>
+
+</Project>
+ 

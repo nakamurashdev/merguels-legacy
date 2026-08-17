@@ -6,11 +6,13 @@ namespace MerguelsLegacy.Content.Asphalt;
 
 public class AsphaltPlatformItem : ModItem
 {
+    public override string Texture => Assets.Images.Content.Asphalt.AsphaltPlatformItem.KEY;
+
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
 
-        Item.ResearchUnlockCount = Sacrifices.Blocks;
+        Item.ResearchUnlockCount = ItemSacrifices.Blocks;
     }
 
     public override void SetDefaults()
@@ -18,7 +20,7 @@ public class AsphaltPlatformItem : ModItem
         base.SetDefaults();
 
         Item.DefaultToPlaceableTile(ModContent.TileType<AsphaltPlatformTile>());
-        
+
         Item.width = 24;
         Item.height = 12;
     }
@@ -38,12 +40,14 @@ public class AsphaltPlatformTile : ModTile
     /// <summary>
     ///     The color of the tile on the map.
     /// </summary>
-    public static readonly Color Color = new(32, 33, 34);
+    public static readonly Color MAP_COLOR = new(32, 33, 34);
+
+    public override string Texture => Assets.Images.Content.Asphalt.AsphaltPlatformTile.KEY;
     
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
-        
+
         Main.tileFrameImportant[Type] = true;
         Main.tileLighted[Type] = true;
         Main.tileSolidTop[Type] = true;
@@ -51,37 +55,37 @@ public class AsphaltPlatformTile : ModTile
         Main.tileTable[Type] = true;
         Main.tileNoAttach[Type] = true;
         Main.tileLavaDeath[Type] = true;
-        
+
         TileID.Sets.Platforms[Type] = true;
         TileID.Sets.DisableSmartCursor[Type] = true;
 
         HitSound = SoundID.Dig;
         DustType = DustID.Asphalt;
-        
+
         AdjTiles = [TileID.Platforms];
-        
+
         VanillaFallbackOnModDeletion = TileID.Platforms;
-        
+
         AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
-        
-        AddMapEntry(Color);
-        
+
+        AddMapEntry(MAP_COLOR);
+
         TileObjectData.newTile.CoordinateHeights = [16];
         TileObjectData.newTile.CoordinateWidth = 16;
-        
+
         TileObjectData.newTile.CoordinatePadding = 2;
-        
+
         TileObjectData.newTile.StyleHorizontal = true;
         TileObjectData.newTile.StyleMultiplier = 27;
         TileObjectData.newTile.StyleWrapLimit = 27;
-        
+
         TileObjectData.newTile.LavaDeath = true;
-        
+
         TileObjectData.newTile.UsesCustomCanPlace = false;
 
         TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
         TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
-        
+
         TileObjectData.addTile(Type);
     }
 

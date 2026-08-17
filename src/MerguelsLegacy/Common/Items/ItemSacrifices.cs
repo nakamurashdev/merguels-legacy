@@ -1,6 +1,6 @@
 ﻿namespace MerguelsLegacy.Common.Items;
 
-public static class Sacrifices
+public static class ItemSacrifices
 {
     /// <summary>
     ///     The sacrifice count for weapons, tools, armor, accessories, furniture, and permanent boosters.
@@ -18,10 +18,11 @@ public static class Sacrifices
     public const int TreasureBags = 3;
 
     /// <summary>
-    ///     The sacrifice count for critters, mechanisms, fruits, rare crafting materials, biome crates, and food and drink items.
+    ///     The sacrifice count for critters, mechanisms, fruits, rare crafting materials, biome crates,
+    ///     and food and drink items.
     /// </summary>
     public const int Critters = 5;
-    
+
     /// <summary>
     ///     The sacrifice count for crates, life crystals, mana crystals, and life fruit.
     /// </summary>
@@ -31,7 +32,7 @@ public static class Sacrifices
     ///     The sacrifice count for gems and Flinx fur.
     /// </summary>
     public const int Gems = 15;
-    
+
     /// <summary>
     ///     The sacrifice count for potions.
     /// </summary>
@@ -51,7 +52,7 @@ public static class Sacrifices
     ///     The sacrifice count for acorns, fallen stars, and beams.
     /// </summary>
     public const int Acorns = 50;
-    
+
     /// <summary>
     ///     The sacrifice count for ammunition items and explosives.
     /// </summary>
@@ -66,7 +67,7 @@ public static class Sacrifices
     ///     The sacrifice count for platforms and extractable blocks.
     /// </summary>
     public const int Platforms = 200;
-    
+
     /// <summary>
     ///     The sacrifice count for background walls.
     /// </summary>

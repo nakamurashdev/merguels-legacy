@@ -8,18 +8,18 @@ public class ResurrectionPotionItem : ModItem
     /// <summary>
     ///     The colors of the particles that are emitted when the potion is consumed.
     /// </summary>
-    public static readonly Color[] Colors = 
+    public static readonly Color[] Colors =
     [
-        new Color(28, 216, 94),
-        new Color(141, 171, 72),
-        new Color(246, 203, 52)
+        new(28, 216, 94),
+        new(141, 171, 72),
+        new(246, 203, 52)
     ];
-    
+
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
-        
-        Item.ResearchUnlockCount = Sacrifices.Potions;
+
+        Item.ResearchUnlockCount = ItemSacrifices.Potions;
 
         ItemID.Sets.DrinkParticleColors[Type] = Colors;
     }
@@ -32,10 +32,10 @@ public class ResurrectionPotionItem : ModItem
 
         Item.consumable = true;
         Item.useTurn = true;
-        
+
         Item.width = 12;
         Item.height = 30;
-        
+
         Item.UseSound = SoundID.Item3;
         Item.useTime = 15;
         Item.useAnimation = 15;
@@ -46,26 +46,31 @@ public class ResurrectionPotionItem : ModItem
         Item.value = Item.sellPrice(silver: 2);
     }
 
-    public override bool CanUseItem(Player player)
-    {
-        return player.lastDeathPostion != Vector2.Zero;
-    }
+    public override bool CanUseItem(Player player) => player.lastDeathPostion != Vector2.Zero;
 
     public override bool? UseItem(Player player)
     {
-        ParticleOrchestrator.BroadcastOrRequestParticleSpawn(ParticleOrchestraType.TerraBlade, new ParticleOrchestraSettings()
-        {
-            IndexOfPlayerWhoInvokedThis = (byte)player.whoAmI,
-            PositionInWorld = player.Center
-        });
+        ParticleOrchestrator.BroadcastOrRequestParticleSpawn
+        (
+            ParticleOrchestraType.TerraBlade,
+            new ParticleOrchestraSettings
+            {
+                IndexOfPlayerWhoInvokedThis = (byte)player.whoAmI,
+                PositionInWorld = player.Center
+            }
+        );
 
         player.Teleport(player.lastDeathPostion - player.Size / 2f, TeleportationStyleID.DebugTeleport);
-        
-        ParticleOrchestrator.BroadcastOrRequestParticleSpawn(ParticleOrchestraType.TerraBlade, new ParticleOrchestraSettings()
-        {
-            IndexOfPlayerWhoInvokedThis = (byte)player.whoAmI,
-            PositionInWorld = player.lastDeathPostion
-        });
+
+        ParticleOrchestrator.BroadcastOrRequestParticleSpawn
+        (
+            ParticleOrchestraType.TerraBlade,
+            new ParticleOrchestraSettings
+            {
+                IndexOfPlayerWhoInvokedThis = (byte)player.whoAmI,
+                PositionInWorld = player.lastDeathPostion
+            }
+        );
 
         return true;
     }

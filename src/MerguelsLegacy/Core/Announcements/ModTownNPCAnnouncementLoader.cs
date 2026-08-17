@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework.Input;
-using Mono.Cecil.Cil;
 using MonoMod.Cil;
 
 namespace MerguelsLegacy.Core.Announcements;
@@ -12,7 +10,7 @@ public sealed class ModTownNPCAnnouncementLoader : ModSystem
     public override void Load()
     {
         base.Load();
-        
+
         IL_WorldGen.SpawnTownNPC += WorldGen_SpawnTownNPC_Edit;
     }
 
@@ -32,14 +30,14 @@ public sealed class ModTownNPCAnnouncementLoader : ModSystem
             cursor.EmitLdloc(11);
 
             cursor.EmitDelegate(GetLocalizationKey);
-            
+
             if (!cursor.TryGotoNext(static i => i.MatchLdstr("Announcement.HasArrived")))
             {
                 throw new InvalidOperationException($"Failed to match the second occurrence of the announcement text in {nameof(WorldGen)}::{nameof(WorldGen.SpawnTownNPC)}");
             }
 
             cursor.Index++;
-            
+
             cursor.EmitLdloc(11);
 
             cursor.EmitDelegate(GetLocalizationKey);
@@ -52,8 +50,8 @@ public sealed class ModTownNPCAnnouncementLoader : ModSystem
 
     private static string GetLocalizationKey(string value, int index)
     {
-        var npc = Main.npc[index];  
-        
+        var npc = Main.npc[index];
+
         foreach (var announcement in Announcements)
         {
             if (!announcement.MeetsConditions(npc))

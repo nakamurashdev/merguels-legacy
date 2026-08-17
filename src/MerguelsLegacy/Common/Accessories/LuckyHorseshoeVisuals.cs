@@ -2,13 +2,11 @@
 
 public sealed class LuckyHorseshoePlayer : ModPlayer
 {
-    private static readonly string TEXTURE_PATH = $"{nameof(MerguelsLegacy)}/Assets/Textures/Accessories/{nameof(ItemID.LuckyHorseshoe)}_{EquipType.Shoes}";
-    
     /// <summary>
-    ///     Gets or sets whether the effects of the <see cref="ItemID.LuckyHorseshoe"/> are enabled.
+    ///     Gets or sets a value indicating whether the visual effects of the Lucky Horseshoe are enabled.
     /// </summary>
     public bool Enabled { get; set; }
-    
+
     public override void Load()
     {
         base.Load();
@@ -18,7 +16,7 @@ public sealed class LuckyHorseshoePlayer : ModPlayer
             return;
         }
 
-        EquipLoader.AddEquipTexture(Mod, TEXTURE_PATH, EquipType.Shoes, null, nameof(ItemID.LuckyHorseshoe));
+        EquipLoader.AddEquipTexture(Mod, Assets.Textures.Accessories.LuckyHorseshoe_Shoes.KEY, EquipType.Shoes, null, nameof(ItemID.LuckyHorseshoe));
     }
 
     public override void ResetEffects()
@@ -43,10 +41,7 @@ public sealed class LuckyHorseshoePlayer : ModPlayer
 
 public sealed class LuckyHorseshoeGlobalItem : GlobalItem
 {
-    public override bool AppliesToEntity(Item entity, bool lateInstantiation)
-    {
-        return entity.type == ItemID.LuckyHorseshoe;
-    }
+    public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.LuckyHorseshoe;
 
     public override void UpdateAccessory(Item item, Player player, bool hideVisual)
     {

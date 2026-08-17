@@ -8,7 +8,7 @@ public sealed class StrangePlantsSystem : ModSystem
     public override void Load()
     {
         base.Load();
-        
+
         IL_WorldGen.UpdateWorld_OvergroundTile += EditSurfacePlantSpawns;
         IL_WorldGen.UpdateWorld_UndergroundTile += EditUndergroundPlantSpawns;
     }
@@ -37,7 +37,7 @@ public sealed class StrangePlantsSystem : ModSystem
             MonoModHooks.DumpIL(MerguelsLegacy.Instance, context);
         }
     }
-    
+
     private void EditUndergroundPlantSpawns(ILContext context)
     {
         try

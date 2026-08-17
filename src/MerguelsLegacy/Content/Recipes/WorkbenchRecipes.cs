@@ -5,7 +5,7 @@ public sealed class WorkbenchRecipes : ModSystem
     public override void PostAddRecipes()
     {
         base.PostAddRecipes();
-        
+
         Recipe.Create(ItemID.GoldenChest)
             .AddIngredient(ItemID.GoldBrick, 8)
             .AddRecipeGroup(RecipeGroupID.IronBar, 2)

@@ -14,7 +14,7 @@ public static class ChestExtensions
             {
                 continue;
             }
-            
+
             yield return (item, i);
         }
     }

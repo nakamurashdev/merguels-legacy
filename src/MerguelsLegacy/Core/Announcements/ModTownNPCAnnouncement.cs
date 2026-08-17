@@ -5,7 +5,7 @@ namespace MerguelsLegacy.Core.Announcements;
 public abstract class ModTownNPCAnnouncement : ModType, ILocalizedModType
 {
     public string LocalizationCategory { get; } = "Announcements";
-    
+
     /// <summary>
     ///     The translations for the text of the announcement.
     /// </summary>
@@ -14,8 +14,11 @@ public abstract class ModTownNPCAnnouncement : ModType, ILocalizedModType
     /// <summary>
     ///     Gets whether the announcement meets the conditions to be displayed.
     /// </summary>
-    /// <param name="npc">The town <see cref="NPC"/> being evaluated.</param>
-    /// <returns><see langword="true"/> if the announcement meets the conditions to be displayed; otherwise, <see langword="false"/>.</returns>
+    /// <param name="npc">The town <see cref="NPC" /> being evaluated.</param>
+    /// <returns>
+    ///     <see langword="true" /> if the announcement meets the conditions to be displayed;
+    ///     otherwise, <see langword="false" />.
+    /// </returns>
     public abstract bool MeetsConditions(NPC npc);
 
     public override void SetStaticDefaults()
@@ -25,8 +28,5 @@ public abstract class ModTownNPCAnnouncement : ModType, ILocalizedModType
         _ = Text;
     }
 
-    protected sealed override void Register()
-    {
-        ModTypeLookup<ModTownNPCAnnouncement>.Register(this);
-    }
+    protected sealed override void Register() => ModTypeLookup<ModTownNPCAnnouncement>.Register(this);
 }

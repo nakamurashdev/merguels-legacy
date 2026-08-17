@@ -2,13 +2,11 @@
 
 public sealed class VolatileGelatinPlayer : ModPlayer
 {
-    private static readonly string TEXTURE_PATH = $"{nameof(MerguelsLegacy)}/Assets/Textures/Accessories/{nameof(ItemID.VolatileGelatin)}_{EquipType.Head}";
-    
     /// <summary>
-    ///     Gets or sets whether the effects of the <see cref="ItemID.VolatileGelatin"/> are enabled.
+    ///     Gets or sets a value indicating whether the visual effects of the Volatile Gelatin are enabled.
     /// </summary>
     public bool Enabled { get; set; }
-    
+
     public override void Load()
     {
         base.Load();
@@ -18,7 +16,7 @@ public sealed class VolatileGelatinPlayer : ModPlayer
             return;
         }
 
-        EquipLoader.AddEquipTexture(Mod, TEXTURE_PATH, EquipType.Head, null, nameof(ItemID.VolatileGelatin));
+        EquipLoader.AddEquipTexture(Mod, Assets.Textures.Accessories.VolatileGelatin_Head.KEY, EquipType.Head, null, nameof(ItemID.VolatileGelatin));
     }
 
     public override void ResetEffects()
@@ -36,17 +34,14 @@ public sealed class VolatileGelatinPlayer : ModPlayer
         {
             return;
         }
-        
+
         Player.head = EquipLoader.GetEquipSlot(Mod, nameof(ItemID.VolatileGelatin), EquipType.Head);
     }
 }
 
 public sealed class VolatileGelatinGlobalItem : GlobalItem
 {
-    public override bool AppliesToEntity(Item entity, bool lateInstantiation)
-    {
-        return entity.type == ItemID.VolatileGelatin;
-    }
+    public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.VolatileGelatin;
 
     public override void UpdateAccessory(Item item, Player player, bool hideVisual)
     {

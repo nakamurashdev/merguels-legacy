@@ -6,7 +6,8 @@ public class TransmutationStationRecipes : ModSystem
     {
         base.PostAddRecipes();
 
-#region Ores
+        #region Ores
+
         AddSwap(ItemID.CopperOre, ItemID.TinOre);
         AddSwap(ItemID.IronOre, ItemID.LeadOre);
         AddSwap(ItemID.SilverOre, ItemID.TungstenOre);
@@ -15,9 +16,11 @@ public class TransmutationStationRecipes : ModSystem
         AddSwap(ItemID.CobaltOre, ItemID.PalladiumOre);
         AddSwap(ItemID.MythrilOre, ItemID.OrichalcumOre);
         AddSwap(ItemID.AdamantiteOre, ItemID.TitaniumOre);
-#endregion
 
-#region Bars
+        #endregion
+
+        #region Bars
+
         AddSwap(ItemID.CopperBar, ItemID.TinBar);
         AddSwap(ItemID.IronBar, ItemID.LeadBar);
         AddSwap(ItemID.SilverBar, ItemID.TungstenBar);
@@ -26,9 +29,11 @@ public class TransmutationStationRecipes : ModSystem
         AddSwap(ItemID.CobaltBar, ItemID.PalladiumBar);
         AddSwap(ItemID.MythrilBar, ItemID.OrichalcumBar);
         AddSwap(ItemID.AdamantiteBar, ItemID.TitaniumBar);
-#endregion
 
-#region Evil
+        #endregion
+
+        #region Evil
+
         AddSwap(ItemID.CursedFlame, ItemID.Ichor);
         AddSwap(ItemID.TissueSample, ItemID.ShadowScale);
         AddSwap(ItemID.Vertebrae, ItemID.RottenChunk);
@@ -49,20 +54,22 @@ public class TransmutationStationRecipes : ModSystem
         AddSwap(ItemID.ChainGuillotines, ItemID.FetidBaghnakhs);
         AddSwap(ItemID.ClingerStaff, ItemID.SoulDrain);
         AddSwap(ItemID.PutridScent, ItemID.FleshKnuckles);
-#endregion
 
-#region Ammo
+        #endregion
+
+        #region Ammo
+
         AddSwap(ItemID.SilverBullet, ItemID.TungstenBullet);
-#endregion
+
+        #endregion
     }
 
     /// <summary>
-    ///     
     /// </summary>
     /// <param name="a"></param>
     /// <param name="b"></param>
     /// <exception cref="ArgumentOutOfRangeException">
-    ///     Thrown if <paramref name="a"/> or <paramref name="b"/> is negative or zero.
+    ///     Thrown if <paramref name="a" /> or <paramref name="b" /> is negative or zero.
     /// </exception>
     private static void AddSwap(int a, int b)
     {
@@ -88,7 +95,7 @@ public class TransmutationStationItem : ModItem
         base.SetDefaults();
 
         Item.rare = ItemRarityID.Green;
-        
+
         Item.value = Item.sellPrice(gold: 4);
     }
 
@@ -118,7 +125,7 @@ public class TransmutationStationTile : ModTile
     public override void NumDust(int i, int j, bool fail, ref int num)
     {
         base.NumDust(i, j, fail, ref num);
-        
+
         num = fail ? 1 : 3;
     }
 }

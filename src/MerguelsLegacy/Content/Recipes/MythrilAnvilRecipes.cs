@@ -16,13 +16,13 @@ public sealed class MythrilAnvilRecipes : ModSystem
             .AddIngredient(ItemID.GoldBroadsword)
             .AddTile(TileID.MythrilAnvil)
             .Register();
-        
+
         Recipe.Create(ItemID.EnchantedSword)
             .AddIngredient(ItemID.EnchantedBoomerang)
             .AddIngredient(ItemID.PlatinumBroadsword)
             .AddTile(TileID.MythrilAnvil)
             .Register();
-        
+
         Recipe.Create(ItemID.BloodySpine)
             .AddIngredient(ItemID.ViciousPowder, 30)
             .AddIngredient(ItemID.Vertebrae, 15)

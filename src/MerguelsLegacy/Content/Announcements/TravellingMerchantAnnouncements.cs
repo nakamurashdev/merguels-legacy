@@ -7,7 +7,7 @@ public sealed class OceanTravellingMerchantAnnouncement : ModTownNPCAnnouncement
     public override bool MeetsConditions(NPC npc)
     {
         var position = npc.Center.ToTileCoordinates();
-        
+
         return WorldGen.oceanDepths(position.X, position.Y);
     }
 }
@@ -27,9 +27,9 @@ public sealed class CavernsTravellingMerchantAnnouncement : ModTownNPCAnnounceme
     {
         var position = npc.Center.ToTileCoordinates();
 
-        var underground = (double)position.Y <= Main.rockLayer && (double)position.Y > Main.worldSurface;
-        var caverns = (double)position.Y <= Main.UnderworldLayer && (double)position.Y > Main.rockLayer;
-        
+        var underground = position.Y <= Main.rockLayer && position.Y > Main.worldSurface;
+        var caverns = (double)position.Y <= Main.UnderworldLayer && position.Y > Main.rockLayer;
+
         return underground || caverns;
     }
 }
@@ -37,17 +37,17 @@ public sealed class CavernsTravellingMerchantAnnouncement : ModTownNPCAnnounceme
 /*
 public sealed class DesertTravellingMerchantAnnouncement : ModTownNPCAnnouncement
 {
-    
+
 }
 
 public sealed class SnowTravellingMerchantAnnouncement : ModTownNPCAnnouncement
 {
-    
+
 }
 
 public sealed class MushroomTravellingMerchantAnnouncement : ModTownNPCAnnouncement
 {
-    
+
 }
 */
 
@@ -64,7 +64,7 @@ public sealed class UnderworldTravellingMerchantAnnouncement : ModTownNPCAnnounc
 /*
 public sealed class HallowTravellingMerchantAnnouncement : ModTownNPCAnnouncement
 {
-    
+
 }
 
 public sealed class ShimmerTravellingMerchantAnnouncement : ModTownNPCAnnouncement

@@ -2,13 +2,11 @@
 
 public sealed class MoltenCharmPlayer : ModPlayer
 {
-    private static readonly string TEXTURE_PATH = $"{nameof(MerguelsLegacy)}/Assets/Textures/Accessories/{nameof(ItemID.MoltenCharm)}_{EquipType.Neck}";
-    
     /// <summary>
-    ///     Gets or sets whether the effects of the <see cref="ItemID.MoltenCharm"/> are enabled.
+    ///     Gets or sets a value indicating whether the visual effects of the Molten Charm are enabled.
     /// </summary>
     public bool Enabled { get; set; }
-    
+
     public override void Load()
     {
         base.Load();
@@ -18,7 +16,7 @@ public sealed class MoltenCharmPlayer : ModPlayer
             return;
         }
 
-        EquipLoader.AddEquipTexture(Mod, TEXTURE_PATH, EquipType.Neck, null, nameof(ItemID.MoltenCharm));
+        EquipLoader.AddEquipTexture(Mod, Assets.Textures.Accessories.MoltenCharm_Neck.KEY, EquipType.Neck, null, nameof(ItemID.MoltenCharm));
     }
 
     public override void ResetEffects()
@@ -43,10 +41,7 @@ public sealed class MoltenCharmPlayer : ModPlayer
 
 public sealed class MoltenCharmGlobalItem : GlobalItem
 {
-    public override bool AppliesToEntity(Item entity, bool lateInstantiation)
-    {
-        return entity.type == ItemID.MoltenCharm;
-    }
+    public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.MoltenCharm;
 
     public override void UpdateAccessory(Item item, Player player, bool hideVisual)
     {

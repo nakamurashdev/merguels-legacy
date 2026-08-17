@@ -29,7 +29,7 @@ public sealed class SafeQuickBuffPlayer : ModPlayer
             {
                 continue;
             }
-            
+
             Player.AddBuff(item.buffType, item.buffTime);
 
             if (!item.consumable)

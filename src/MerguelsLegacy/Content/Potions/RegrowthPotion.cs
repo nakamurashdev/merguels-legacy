@@ -12,26 +12,26 @@ public class RegrowthPotionItem : ModItem
     ///     Equivalent to 8 minutes (8 * 60 seconds * 60 ticks).
     /// </remarks>
     public const int BUFF_TIME = 8 * TimeUtilities.MINUTE_IN_SECONDS * TimeUtilities.SECOND_IN_TICKS;
-    
+
     /// <summary>
     ///     The colors of the particles that are emitted when the potion is consumed.
     /// </summary>
-    public static readonly Color[] Colors = 
+    public static readonly Color[] Colors =
     [
-        new Color(230, 222, 10),
-        new Color(243, 139, 86),
-        new Color(255, 56, 162)
+        new(230, 222, 10),
+        new(243, 139, 86),
+        new(255, 56, 162)
     ];
-    
+
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
 
-        Item.ResearchUnlockCount = Sacrifices.Potions;
-        
+        Item.ResearchUnlockCount = ItemSacrifices.Potions;
+
         ItemID.Sets.DrinkParticleColors[Type] = Colors;
     }
-    
+
     public override void SetDefaults()
     {
         base.SetDefaults();
@@ -40,10 +40,10 @@ public class RegrowthPotionItem : ModItem
 
         Item.consumable = true;
         Item.useTurn = true;
-        
+
         Item.width = 12;
         Item.height = 30;
-        
+
         Item.UseSound = SoundID.Item3;
         Item.useTime = 15;
         Item.useAnimation = 15;
@@ -60,7 +60,7 @@ public class RegrowthPotionItem : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        
+
         CreateRecipe()
             .AddIngredient(ItemID.RegenerationPotion)
             .AddIngredient(ItemID.IronskinPotion)
@@ -76,11 +76,11 @@ public class RegrowthPotionBuff : ModBuff
     ///     The defense bonus provided by the buff.
     /// </summary>
     public const int DEFENSE_BONUS = 8;
-    
+
     public override void Update(Player player, ref int buffIndex)
     {
         base.Update(player, ref buffIndex);
-        
+
         player.statDefense += DEFENSE_BONUS;
 
         player.GetModPlayer<RegrowthPotionPlayer>().Enabled = true;
@@ -90,7 +90,8 @@ public class RegrowthPotionBuff : ModBuff
 public sealed class RegrowthPotionPlayer : ModPlayer
 {
     /// <summary>
-    ///     Gets or sets a value indicating whether the player is currently under the effect of the Regrowing buff.
+    ///     Gets or sets a value indicating whether the player is currently under the effect of the
+    ///     Regrowing buff.
     /// </summary>
     public bool Enabled { get; set; }
 
@@ -109,7 +110,7 @@ public sealed class RegrowthPotionPlayer : ModPlayer
         {
             return;
         }
-        
+
         Player.lifeRegen += 2;
         Player.lifeRegenTime += 2f;
     }

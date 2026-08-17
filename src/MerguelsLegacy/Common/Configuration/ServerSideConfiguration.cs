@@ -31,7 +31,7 @@ public sealed class ServerSideConfiguration : ModConfig
     [Header("World")]
     [DefaultValue(true)]
     public bool EnablePreHardmodeStrangePlants { get; set; } = true;
-    
+
     /// <summary>
     ///     Gets or sets a value indicating whether the Rolling Cactus is enabled.
     /// </summary>
