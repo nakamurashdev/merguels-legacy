@@ -1,37 +1,23 @@
-﻿using MerguelsLegacy.Common.Items;
-using MerguelsLegacy.Utilities;
+﻿using MerguelsLegacy.Utilities;
 
 namespace MerguelsLegacy.Content.Potions;
 
 public class RegrowthPotionItem : ModItem
 {
-    /// <summary>
-    ///     The duration of the buff applied by the item, in ticks.
-    /// </summary>
-    /// <remarks>
-    ///     Equivalent to 8 minutes (8 * 60 seconds * 60 ticks).
-    /// </remarks>
-    public const int BUFF_TIME = 8 * TimeUtilities.MINUTE_IN_SECONDS * TimeUtilities.SECOND_IN_TICKS;
-
-    /// <summary>
-    ///     The colors of the particles that are emitted when the potion is consumed.
-    /// </summary>
-    public static readonly Color[] Colors =
-    [
-        new(230, 222, 10),
-        new(243, 139, 86),
-        new(255, 56, 162)
-    ];
-
+    /// <inheritdoc/> 
+    public override string Texture => Assets.Images.Content.Potions.RegrowthPotionItem.KEY;
+    
+    /// <inheritdoc/> 
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
 
-        Item.ResearchUnlockCount = ItemSacrifices.Potions;
+        Item.ResearchUnlockCount = 20;
 
-        ItemID.Sets.DrinkParticleColors[Type] = Colors;
+        ItemID.Sets.DrinkParticleColors[Type] = [new(230, 222, 10), new(243, 139, 86), new(255, 56, 162)];
     }
 
+    /// <inheritdoc/> 
     public override void SetDefaults()
     {
         base.SetDefaults();
@@ -49,7 +35,7 @@ public class RegrowthPotionItem : ModItem
         Item.useAnimation = 15;
         Item.useStyle = ItemUseStyleID.DrinkLiquid;
 
-        Item.buffTime = BUFF_TIME;
+        Item.buffTime = TimeUtilities.MinutesToFrames(8);
         Item.buffType = ModContent.BuffType<RegrowthPotionBuff>();
 
         Item.rare = ItemRarityID.Blue;
@@ -57,6 +43,7 @@ public class RegrowthPotionItem : ModItem
         Item.value = Item.sellPrice(silver: 4);
     }
 
+    /// <inheritdoc/> 
     public override void AddRecipes()
     {
         base.AddRecipes();
@@ -73,15 +60,19 @@ public class RegrowthPotionItem : ModItem
 public class RegrowthPotionBuff : ModBuff
 {
     /// <summary>
-    ///     The defense bonus provided by the buff.
+    ///     The increase to the player's defense granted by the Regrowth Potion.
     /// </summary>
-    public const int DEFENSE_BONUS = 8;
+    public const int DEFENSE_INCREASE = 8;
+    
+    /// <inheritdoc/> 
+    public override string Texture => Assets.Images.Content.Potions.RegrowthPotionBuff.KEY;
 
+    /// <inheritdoc/> 
     public override void Update(Player player, ref int buffIndex)
     {
         base.Update(player, ref buffIndex);
 
-        player.statDefense += DEFENSE_BONUS;
+        player.statDefense += DEFENSE_INCREASE;
 
         player.GetModPlayer<RegrowthPotionPlayer>().Enabled = true;
     }
@@ -90,11 +81,24 @@ public class RegrowthPotionBuff : ModBuff
 public sealed class RegrowthPotionPlayer : ModPlayer
 {
     /// <summary>
-    ///     Gets or sets a value indicating whether the player is currently under the effect of the
-    ///     Regrowing buff.
+    ///     The increase to the player's life regeneration granted by the Regrowth Potion.
     /// </summary>
-    public bool Enabled { get; set; }
+    public const int LIFE_REGENERATION_INCREASE = 2;
 
+    /// <summary>
+    ///     Gets or sets a value indicating whether the player has the effects of the Regrowth Potion.
+    /// </summary>
+    /// <value>
+    ///     <see langword="true" /> if the player has the effects of the Regrowth Potion; otherwise,
+    ///     <see langword="false" />.
+    /// </value>
+    public bool Enabled
+    {
+        get; 
+        set;
+    }
+
+    /// <inheritdoc/> 
     public override void ResetEffects()
     {
         base.ResetEffects();
@@ -102,6 +106,7 @@ public sealed class RegrowthPotionPlayer : ModPlayer
         Enabled = false;
     }
 
+    /// <inheritdoc/> 
     public override void UpdateLifeRegen()
     {
         base.UpdateLifeRegen();
@@ -111,7 +116,7 @@ public sealed class RegrowthPotionPlayer : ModPlayer
             return;
         }
 
-        Player.lifeRegen += 2;
-        Player.lifeRegenTime += 2f;
+        Player.lifeRegen += LIFE_REGENERATION_INCREASE;
+        Player.lifeRegenTime += LIFE_REGENERATION_INCREASE;
     }
 }

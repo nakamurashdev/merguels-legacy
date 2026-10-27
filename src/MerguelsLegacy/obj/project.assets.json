@@ -16,7 +16,7 @@
           "build/Krafs.Publicizer.targets": {}
         }
       },
-      "tModLoader/2026.5.3": {
+      "tModLoader/2026.7.3": {
         "type": "package",
         "compile": {
           "lib/net8.0/Basic.Reference.Assemblies.Net80.dll": {},
@@ -233,10 +233,10 @@
         "krafs.publicizer.nuspec"
       ]
     },
-    "tModLoader/2026.5.3": {
-      "sha512": "SIhq1BvhJhol03tQu4tQUW8uqpfFnDRIFQZ3+1diVnRWhnAJG+stxp/tMtwYpZFLjByro/DMTYYE7Xi6qdtNoQ==",
+    "tModLoader/2026.7.3": {
+      "sha512": "5RQlrJFDtWfD0i+jhAEN+se4TJsxGrzTGIL8VsyGXHl5jCuq1FtU6bFTxJ5CXjijnUEbZD1noJZwikXnp7aijA==",
       "type": "package",
-      "path": "tmodloader/2026.5.3",
+      "path": "tmodloader/2026.7.3",
       "files": [
         ".nupkg.metadata",
         "analyzers/dotnet/cs/tModCodeAssist.CodeFixes.dll",
@@ -397,7 +397,7 @@
         "lib/net8.0/tModLoader.xml",
         "lib/net8.0/tModPorter.dll",
         "lib/net8.0/tModPorter.pdb",
-        "tmodloader.2026.5.3.nupkg.sha512",
+        "tmodloader.2026.7.3.nupkg.sha512",
         "tmodloader.nuspec"
       ]
     }
@@ -405,7 +405,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Krafs.Publicizer >= 2.3.0",
-      "tModLoader >= 2026.5.3"
+      "tModLoader >= 2026.7.3"
     ]
   },
   "packageFolders": {
@@ -462,7 +462,7 @@
             "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2026.5.3, )"
+            "version": "[2026.7.3, )"
           }
         },
         "imports": [

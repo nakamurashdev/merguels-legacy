@@ -1,20 +1,22 @@
-﻿using MerguelsLegacy.Common.Items;
-using Terraria.Enums;
+﻿using Terraria.Enums;
 using Terraria.ObjectData;
 
 namespace MerguelsLegacy.Content.Asphalt;
 
 public class AsphaltPlatformItem : ModItem
 {
+    /// <inheritdoc/> 
     public override string Texture => Assets.Images.Content.Asphalt.AsphaltPlatformItem.KEY;
 
+    /// <inheritdoc/> 
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
 
-        Item.ResearchUnlockCount = ItemSacrifices.Blocks;
+        Item.ResearchUnlockCount = 100;
     }
 
+    /// <inheritdoc/> 
     public override void SetDefaults()
     {
         base.SetDefaults();
@@ -25,6 +27,7 @@ public class AsphaltPlatformItem : ModItem
         Item.height = 12;
     }
 
+    /// <inheritdoc/> 
     public override void AddRecipes()
     {
         base.AddRecipes();
@@ -37,13 +40,10 @@ public class AsphaltPlatformItem : ModItem
 
 public class AsphaltPlatformTile : ModTile
 {
-    /// <summary>
-    ///     The color of the tile on the map.
-    /// </summary>
-    public static readonly Color MAP_COLOR = new(32, 33, 34);
-
+    /// <inheritdoc/> 
     public override string Texture => Assets.Images.Content.Asphalt.AsphaltPlatformTile.KEY;
     
+    /// <inheritdoc/> 
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
@@ -68,7 +68,7 @@ public class AsphaltPlatformTile : ModTile
 
         AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 
-        AddMapEntry(MAP_COLOR);
+        AddMapEntry(new Color(32, 33, 34));
 
         TileObjectData.newTile.CoordinateHeights = [16];
         TileObjectData.newTile.CoordinateWidth = 16;
@@ -89,6 +89,7 @@ public class AsphaltPlatformTile : ModTile
         TileObjectData.addTile(Type);
     }
 
+    /// <inheritdoc/> 
     public override void NumDust(int i, int j, bool fail, ref int num)
     {
         base.NumDust(i, j, fail, ref num);
@@ -96,6 +97,7 @@ public class AsphaltPlatformTile : ModTile
         num = fail ? 1 : 3;
     }
 
+    /// <inheritdoc/> 
     public override void FloorVisuals(Player player)
     {
         base.FloorVisuals(player);

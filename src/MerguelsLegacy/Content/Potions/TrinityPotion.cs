@@ -1,37 +1,23 @@
-﻿using MerguelsLegacy.Common.Items;
-using MerguelsLegacy.Utilities;
+﻿using MerguelsLegacy.Utilities;
 
 namespace MerguelsLegacy.Content.Potions;
 
 public class TrinityPotionItem : ModItem
 {
-    /// <summary>
-    ///     The duration of the buff applied by the item, in ticks.
-    /// </summary>
-    /// <remarks>
-    ///     Equivalent to 10 minutes 10 * 60 seconds * 60 ticks).
-    /// </remarks>
-    public const int BUFF_TIME = 10 * TimeUtilities.MINUTE_IN_SECONDS * TimeUtilities.SECOND_IN_TICKS;
-
-    /// <summary>
-    ///     The colors of the particles that are emitted when the potion is consumed.
-    /// </summary>
-    public static readonly Color[] Colors =
-    [
-        new(230, 222, 10),
-        new(255, 56, 162),
-        new(134, 230, 10)
-    ];
-
+    /// <inheritdoc/> 
+    public override string Texture => Assets.Images.Content.Potions.TrinityPotionItem.KEY;
+    
+    /// <inheritdoc/> 
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
 
-        Item.ResearchUnlockCount = ItemSacrifices.Potions;
+        Item.ResearchUnlockCount = 20;
 
-        ItemID.Sets.DrinkParticleColors[Type] = Colors;
+        ItemID.Sets.DrinkParticleColors[Type] = [new(230, 222, 10), new(255, 56, 162), new(134, 230, 10)];
     }
 
+    /// <inheritdoc/> 
     public override void SetDefaults()
     {
         base.SetDefaults();
@@ -49,7 +35,7 @@ public class TrinityPotionItem : ModItem
         Item.useAnimation = 15;
         Item.useStyle = ItemUseStyleID.DrinkLiquid;
 
-        Item.buffTime = BUFF_TIME;
+        Item.buffTime = TimeUtilities.MinutesToFrames(10);
         Item.buffType = ModContent.BuffType<TrinityPotionBuff>();
 
         Item.rare = ItemRarityID.Blue;
@@ -57,6 +43,7 @@ public class TrinityPotionItem : ModItem
         Item.value = Item.sellPrice(silver: 6);
     }
 
+    /// <inheritdoc/> 
     public override void AddRecipes()
     {
         base.AddRecipes();
@@ -74,22 +61,26 @@ public class TrinityPotionItem : ModItem
 public class TrinityPotionBuff : ModBuff
 {
     /// <summary>
-    ///     The defense bonus provided by the buff.
+    ///     The increase to the player's movement speed granted by the Trinity Potion.
     /// </summary>
-    public const int DEFENSE_BONUS = 8;
-
+    public const float MOVEMENT_SPEED_INCREASE = 0.25f;
+    
     /// <summary>
-    ///     The movement speed bonus provided by the buff.
+    ///     The increase to the player's defense granted by the Trinity Potion.
     /// </summary>
-    public const float MOVEMENT_SPEED_BONUS = 0.25f;
+    public const int DEFENSE_INCREASE = 8;
+    
+    /// <inheritdoc/> 
+    public override string Texture => Assets.Images.Content.Potions.TrinityPotionBuff.KEY;
 
+    /// <inheritdoc/> 
     public override void Update(Player player, ref int buffIndex)
     {
         base.Update(player, ref buffIndex);
 
-        player.statDefense += DEFENSE_BONUS;
+        player.statDefense += DEFENSE_INCREASE;
 
-        player.moveSpeed += MOVEMENT_SPEED_BONUS;
+        player.moveSpeed += MOVEMENT_SPEED_INCREASE;
 
         player.GetModPlayer<TrinityPotionPlayer>().Enabled = true;
     }
@@ -98,11 +89,23 @@ public class TrinityPotionBuff : ModBuff
 public class TrinityPotionPlayer : ModPlayer
 {
     /// <summary>
-    ///     Gets or sets a value indicating whether the player is currently under the effect of the Trinity
-    ///     Force buff.
+    ///     The increase to the player's life regeneration granted by the Trinity Potion.
     /// </summary>
-    public bool Enabled { get; set; }
+    public const int LIFE_REGENERATION_INCREASE = 2;
 
+    /// <summary>
+    ///     Gets or sets a value indicating whether the player has the effects of the Trinity Potion.
+    /// </summary>
+    /// <value>
+    ///     <see langword="true"/> if the player has the effects of the Trinity Potion; otherwise, <see langword="false"/>.
+    /// </value>
+    public bool Enabled
+    {
+        get;
+        set;
+    }
+
+    /// <inheritdoc/> 
     public override void ResetEffects()
     {
         base.ResetEffects();
@@ -110,6 +113,7 @@ public class TrinityPotionPlayer : ModPlayer
         Enabled = false;
     }
 
+    /// <inheritdoc/> 
     public override void UpdateLifeRegen()
     {
         base.UpdateLifeRegen();
@@ -119,7 +123,7 @@ public class TrinityPotionPlayer : ModPlayer
             return;
         }
 
-        Player.lifeRegen += 2;
-        Player.lifeRegenTime += 2f;
+        Player.lifeRegen += LIFE_REGENERATION_INCREASE;
+        Player.lifeRegenTime += LIFE_REGENERATION_INCREASE;
     }
 }

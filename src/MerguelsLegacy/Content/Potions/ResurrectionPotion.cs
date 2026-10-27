@@ -1,29 +1,21 @@
-﻿using MerguelsLegacy.Common.Items;
-using Terraria.GameContent.Drawing;
-
-namespace MerguelsLegacy.Content.Potions;
+﻿namespace MerguelsLegacy.Content.Potions;
 
 public class ResurrectionPotionItem : ModItem
 {
-    /// <summary>
-    ///     The colors of the particles that are emitted when the potion is consumed.
-    /// </summary>
-    public static readonly Color[] Colors =
-    [
-        new(28, 216, 94),
-        new(141, 171, 72),
-        new(246, 203, 52)
-    ];
-
+    /// <inheritdoc/> 
+    public override string Texture => Assets.Images.Content.Potions.ResurrectionPotionItem.KEY;
+    
+    /// <inheritdoc />
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
 
-        Item.ResearchUnlockCount = ItemSacrifices.Potions;
+        Item.ResearchUnlockCount = 20;
 
-        ItemID.Sets.DrinkParticleColors[Type] = Colors;
+        ItemID.Sets.DrinkParticleColors[Type] = [new(28, 216, 94), new(141, 171, 72), new(246, 203, 52)];
     }
 
+    /// <inheritdoc />
     public override void SetDefaults()
     {
         base.SetDefaults();
@@ -33,8 +25,8 @@ public class ResurrectionPotionItem : ModItem
         Item.consumable = true;
         Item.useTurn = true;
 
-        Item.width = 12;
-        Item.height = 30;
+        Item.width = 20;
+        Item.height = 26;
 
         Item.UseSound = SoundID.Item3;
         Item.useTime = 15;
@@ -46,35 +38,18 @@ public class ResurrectionPotionItem : ModItem
         Item.value = Item.sellPrice(silver: 2);
     }
 
+    /// <inheritdoc />
     public override bool CanUseItem(Player player) => player.lastDeathPostion != Vector2.Zero;
 
+    /// <inheritdoc />
     public override bool? UseItem(Player player)
     {
-        ParticleOrchestrator.BroadcastOrRequestParticleSpawn
-        (
-            ParticleOrchestraType.TerraBlade,
-            new ParticleOrchestraSettings
-            {
-                IndexOfPlayerWhoInvokedThis = (byte)player.whoAmI,
-                PositionInWorld = player.Center
-            }
-        );
-
         player.Teleport(player.lastDeathPostion - player.Size / 2f, TeleportationStyleID.DebugTeleport);
-
-        ParticleOrchestrator.BroadcastOrRequestParticleSpawn
-        (
-            ParticleOrchestraType.TerraBlade,
-            new ParticleOrchestraSettings
-            {
-                IndexOfPlayerWhoInvokedThis = (byte)player.whoAmI,
-                PositionInWorld = player.lastDeathPostion
-            }
-        );
 
         return true;
     }
 
+    /// <inheritdoc />
     public override void AddRecipes()
     {
         base.AddRecipes();

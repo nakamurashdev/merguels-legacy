@@ -22,3 +22,16 @@ C:\Users\joaov\Documents\Clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net
 C:\Users\joaov\Documents\Clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\refint\MerguelsLegacy.dll
 C:\Users\joaov\Documents\Clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\MerguelsLegacy.pdb
 C:\Users\joaov\Documents\Clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\ref\MerguelsLegacy.dll
+E:\clones\merguels-legacy\src\MerguelsLegacy\bin\Debug\net8.0\MerguelsLegacy.deps.json
+E:\clones\merguels-legacy\src\MerguelsLegacy\bin\Debug\net8.0\MerguelsLegacy.dll
+E:\clones\merguels-legacy\src\MerguelsLegacy\bin\Debug\net8.0\MerguelsLegacy.pdb
+E:\clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\MerguelsLegacy.csproj.AssemblyReference.cache
+E:\clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\MerguelsLegacy.GeneratedMSBuildEditorConfig.editorconfig
+E:\clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\MerguelsLegacy.AssemblyInfoInputs.cache
+E:\clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\MerguelsLegacy.AssemblyInfo.cs
+E:\clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\MerguelsLegacy.csproj.CoreCompileInputs.cache
+E:\clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\MerguelsLegacy.sourcelink.json
+E:\clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\MerguelsLegacy.dll
+E:\clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\refint\MerguelsLegacy.dll
+E:\clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\MerguelsLegacy.pdb
+E:\clones\merguels-legacy\src\MerguelsLegacy\obj\Debug\net8.0\ref\MerguelsLegacy.dll

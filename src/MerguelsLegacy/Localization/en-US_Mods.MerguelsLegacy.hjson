@@ -8,7 +8,7 @@ Items: {
 		DisplayName: Calcium Potion
 		Tooltip:
 			'''
-			'It doesnt taste like milk at all!'
+			'It doesn't taste like milk at all!'
 			Increase defense by 8
 			25% increased movement speed
 			'''
@@ -19,8 +19,8 @@ Items: {
 		Tooltip:
 			'''
 			'Catch me if you can!'
-			25% increased movement speed
 			Provides life regeneration
+			25% increased movement speed
 			'''
 	}
 
@@ -45,14 +45,112 @@ Items: {
 			'''
 			'Nobody ever thought of doing this before?'
 			Increase defense by 8
-			25% increased movement speed
 			Provides life regeneration
+			25% increased movement speed
 			'''
 	}
 
 	UnstableCompassItem: {
 		DisplayName: Unstable Compass
-		Tooltip: There's no North or South on this. It's trash.
+		Tooltip: "'There's no North or South on this. It's trash.'"
+	}
+
+	DeadmansCoinItem: {
+		DisplayName: Deadmans Coin
+		Tooltip: "'Tell Charon I said hello'"
+	}
+
+	CopperMultitoolItem: {
+		DisplayName: Copper Multitool
+		Tooltip: ""
+	}
+
+	GoldMultitoolItem: {
+		DisplayName: Gold Multitool
+		Tooltip: ""
+	}
+
+	IronMultitoolItem: {
+		DisplayName: Iron Multitool
+		Tooltip: ""
+	}
+
+	LeadMultitoolItem: {
+		DisplayName: Lead Multitool
+		Tooltip: ""
+	}
+
+	PlatinumMultitoolItem: {
+		DisplayName: Platinum Multitool
+		Tooltip: ""
+	}
+
+	SilverMultitoolItem: {
+		DisplayName: Silver Multitool
+		Tooltip: ""
+	}
+
+	TinMultitoolItem: {
+		DisplayName: Tin Multitool
+		Tooltip: ""
+	}
+
+	TungstenMultitoolItem: {
+		DisplayName: Tungsten Multitool
+		Tooltip: ""
+	}
+
+	TransmutationStationItem: {
+		DisplayName: Transmutation Station
+		Tooltip: "'Allows the transmutation of some materials and crafting of others.'"
+	}
+
+	BraceletofCompassionItem: {
+		DisplayName: Bracelet of Compassion
+		Tooltip:
+			'''
+			      'I pity the fool!'
+			      Slowly regenerates life
+			      
+			'''
+	}
+
+	RedHorseshoeBallonItem: {
+		DisplayName: Red Horseshoe Ballon
+		Tooltip:
+			'''
+			'I literally just tied a horseshoe to a ballon, easy as that.'
+			Negates fall damage
+			Increases jump height
+			'''
+	}
+
+	WetLotionItem: {
+		DisplayName: Wet Lotion
+		Tooltip: "'Be careful not to get in your eyes.'"
+	}
+
+	CrudePortableMagicalBucketItem: {
+		DisplayName: Crude Portable Magical Bucket
+		Tooltip: "'Does this bucket have an end?'"
+	}
+
+	HookthulhuItem: {
+		DisplayName: Hookthulhu Item
+		Tooltip: ""
+	}
+
+	IcarusWingsItem: {
+		DisplayName: Icarus Wings Item
+		Tooltip: ""
+	}
+
+	PortableMagicalBucketItem: {
+		DisplayName: Portable Magical Bucket
+		Tooltip:
+		    '''
+		    'What do you mean I can't pour it out?!'
+		    '''
 	}
 }
 
@@ -76,39 +174,117 @@ Buffs: {
 		DisplayName: Trinity Force
 		Description: All the strength you need
 	}
+
+	UnstableCompassBuff: {
+		DisplayName: Whiplash
+		Description: Don't throw up!
+	}
 }
 
 Announcements: {
-	OceanTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived, what's this smell?
-	JungleTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived with some tropical goodies.
-	CavernTravellingMerchantAnnouncement.Text: The Travelling Merchant has a bone to pick with Tim.
-	DesertTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived and is thirsty.
-	SnowTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived and he's shivering from the cold.
-	MushroomTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived with a funky vibe.
-	UnderworldTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived and he shouldn't be here.
-	HallowTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived with high spirits!
-	ShimmerTravellingMerchantAnnouncement.Text: The Travelling Merchant has arrived and... did he get haircut?
+	TravellingMerchant: {
+		Beach: The Travelling Merchant has arrived, what's this smell?
+		Jungle: The Travelling Merchant has arrived with some tropical goodies.
+		Cavern: The Travelling Merchant has a bone to pick with Tim.
+		Desert: The Travelling Merchant has arrived and is thirsty.
+		Snow: The Travelling Merchant has arrived and he's shivering from the cold.
+		Mushroom: The Travelling Merchant has arrived with a funky vibe.
+		Underworld: The Travelling Merchant has arrived and he shouldn't be here.
+		Hallow: The Travelling Merchant has arrived with high spirits!
+		Shimmer: The Travelling Merchant has arrived and... did he get haircut?
+	}
 }
 
 Configs: {
 	ServerSideConfiguration: {
-		DisplayName: Server Settings
+		DisplayName: Server Side Configuration
 
 		Headers: {
-			Potions: "[i:28] Potion Settings"
-			World: "[i:893] World Settings"
+			Recipes: Recipes Header
+			Inventory: Inventory Header
+			World: World Header
+			Items: Items Header
+			Sleeping: Sleeping Header
 		}
 
-		EnableSafeQuickBuff: {
-			Label: Enable Safe Quick Buff
-			Tooltip: Enables/disables whether players can use potions from the Safe through the Quick Buff keybind.
+		EnableTransmutationRecipes: {
+			Label: Enable Transmutation Recipes
+			Tooltip: ""
 		}
 
-		EnablePreHardmodeStrangePlants: {
-			Label: Enable Pre-Hardmode Strange Plants
-			Tooltip: Enables/disables whether Strange Plants can be found in the world before Hardmode.
+		EnableVanillaRecipes: {
+			Label: Enable Vanilla Recipes
+			Tooltip: ""
+		}
+
+		EnableSafePotions: {
+			Label: Enable Safe Potions
+			Tooltip: ""
+		}
+
+		EnableSafeChester: {
+			Label: Enable Safe Chester
+			Tooltip: ""
+		}
+
+		EnableStrangePlants: {
+			Label: Enable Strange Plants
+			Tooltip: ""
+		}
+
+		EnableNightTownNPCs: {
+			Label: Enable Night Town N P Cs
+			Tooltip: ""
+		}
+
+		EnableRollingCactus: {
+			Label: Enable Rolling Cactus
+			Tooltip: ""
+		}
+
+		ItemMaxStack: {
+			Label: Item Max Stack
+			Tooltip: ""
+		}
+
+		ItemAutoReuse: {
+			Label: Item Auto Reuse
+			Tooltip: ""
+		}
+
+		SleepingMode: {
+			Label: Sleeping Mode
+			Tooltip: ""
+		}
+
+		SleepingMultiplier: {
+			Label: Sleeping Multiplier
+			Tooltip: ""
 		}
 	}
 
-	ClientSideConfiguration.DisplayName: Client Side Configuration
+	SleepingMode: {
+		Tooltip: ""
+
+		Single: {
+			Label: Single
+			Tooltip: ""
+		}
+
+		Half: {
+			Label: Half
+			Tooltip: ""
+		}
+
+		All: {
+			Label: All
+			Tooltip: ""
+		}
+	}
+}
+
+Projectiles: {
+	HollowArrowProjectile.DisplayName: Hollow Arrow Projectile
+	VeteranLongbowProjectile.DisplayName: Veteran Longbow Projectile
+	InflammableArrowProjectile.DisplayName: Inflammable Arrow Projectile
 }

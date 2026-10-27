@@ -1,37 +1,23 @@
-﻿using MerguelsLegacy.Common.Items;
-using MerguelsLegacy.Utilities;
+﻿using MerguelsLegacy.Utilities;
 
 namespace MerguelsLegacy.Content.Potions;
 
 public class MercuryPotionItem : ModItem
 {
-    /// <summary>
-    ///     The duration of the buff applied by the item, in ticks.
-    /// </summary>
-    /// <remarks>
-    ///     Equivalent to 8 minutes (8 * 60 seconds * 60 ticks).
-    /// </remarks>
-    public const int BUFF_TIME = 8 * TimeUtilities.MINUTE_IN_SECONDS * TimeUtilities.SECOND_IN_TICKS;
-
-    /// <summary>
-    ///     The colors of the particles that are emitted when the potion is consumed.
-    /// </summary>
-    public static readonly Color[] Colors =
-    [
-        new(255, 56, 162),
-        new(195, 143, 86),
-        new(134, 230, 10)
-    ];
-
+    /// <inheritdoc/> 
+    public override string Texture => Assets.Images.Content.Potions.MercuryPotionItem.KEY;
+    
+    /// <inheritdoc/> 
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
 
-        Item.ResearchUnlockCount = ItemSacrifices.Potions;
+        Item.ResearchUnlockCount = 20;
 
-        ItemID.Sets.DrinkParticleColors[Type] = Colors;
+        ItemID.Sets.DrinkParticleColors[Type] = [new(255, 56, 162), new(195, 143, 86), new(134, 230, 10)];
     }
 
+    /// <inheritdoc/> 
     public override void SetDefaults()
     {
         base.SetDefaults();
@@ -49,7 +35,7 @@ public class MercuryPotionItem : ModItem
         Item.useAnimation = 15;
         Item.useStyle = ItemUseStyleID.DrinkLiquid;
 
-        Item.buffTime = BUFF_TIME;
+        Item.buffTime = TimeUtilities.MinutesToFrames(8);
         Item.buffType = ModContent.BuffType<MercuryPotionBuff>();
 
         Item.rare = ItemRarityID.Blue;
@@ -57,6 +43,7 @@ public class MercuryPotionItem : ModItem
         Item.value = Item.sellPrice(silver: 4);
     }
 
+    /// <inheritdoc/> 
     public override void AddRecipes()
     {
         base.AddRecipes();
@@ -73,15 +60,19 @@ public class MercuryPotionItem : ModItem
 public class MercuryPotionBuff : ModBuff
 {
     /// <summary>
-    ///     The movement speed bonus provided by the buff.
+    ///     The increase to the player's movement speed granted by the Mercury Potion.
     /// </summary>
-    public const float MOVEMENT_SPEED_BONUS = 0.25f;
+    public const float MOVEMENT_SPEED_INCREASE = 0.25f;
+    
+    /// <inheritdoc/> 
+    public override string Texture => Assets.Images.Content.Potions.MercuryPotionBuff.KEY;
 
+    /// <inheritdoc/> 
     public override void Update(Player player, ref int buffIndex)
     {
         base.Update(player, ref buffIndex);
 
-        player.moveSpeed += MOVEMENT_SPEED_BONUS;
+        player.moveSpeed += MOVEMENT_SPEED_INCREASE;
 
         player.GetModPlayer<MercuryPotionPlayer>().Enabled = true;
     }
@@ -90,11 +81,23 @@ public class MercuryPotionBuff : ModBuff
 public sealed class MercuryPotionPlayer : ModPlayer
 {
     /// <summary>
-    ///     Gets or sets a value indicating whether the player is currently under the effect of the
-    ///     Untouchable buff.
+    ///     The increase to the player's life regeneration granted by the Mercury Potion.
     /// </summary>
-    public bool Enabled { get; set; }
+    public const int LIFE_REGENERATION_INCREASE = 2;
 
+    /// <summary>
+    ///     Gets or sets a value indicating whether the player has the effects of the Mercury Potion.
+    /// </summary>
+    /// <value>
+    ///     <see langword="true"/> if the player has the effects of the Mercury Potion; otherwise, <see langword="false"/>.
+    /// </value>
+    public bool Enabled
+    {
+        get; 
+        set;
+    }
+
+    /// <inheritdoc/> 
     public override void ResetEffects()
     {
         base.ResetEffects();
@@ -102,6 +105,7 @@ public sealed class MercuryPotionPlayer : ModPlayer
         Enabled = false;
     }
 
+    /// <inheritdoc/> 
     public override void UpdateLifeRegen()
     {
         base.UpdateLifeRegen();
@@ -111,7 +115,7 @@ public sealed class MercuryPotionPlayer : ModPlayer
             return;
         }
 
-        Player.lifeRegen += 2;
-        Player.lifeRegenTime += 2f;
+        Player.lifeRegen += LIFE_REGENERATION_INCREASE;
+        Player.lifeRegenTime += LIFE_REGENERATION_INCREASE;
     }
 }
